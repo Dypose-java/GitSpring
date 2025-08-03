@@ -1,4 +1,4 @@
-package ru.dypose.springcore.inversionOfControl;
+package ru.dypose.springcore.beans;
 
 public class ClassicalMusic implements Music{
     @Override
