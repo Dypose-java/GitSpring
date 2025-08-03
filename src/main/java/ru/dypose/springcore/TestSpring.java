@@ -1,7 +1,6 @@
 package ru.dypose.springcore;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.dypose.springcore.inversionOfControl.Music;
 import ru.dypose.springcore.inversionOfControl.MusicPlayer;
 
 public class TestSpring {
@@ -9,10 +8,8 @@ public class TestSpring {
 
         try(ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml")) {
-            Music music =context.getBean("musicBean", Music.class);
-            MusicPlayer musicPlayer = new MusicPlayer(music);
+            MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
             musicPlayer.play();
-
         }
 
 
