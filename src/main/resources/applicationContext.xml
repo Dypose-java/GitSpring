@@ -7,4 +7,9 @@
     <bean id="musicBean"
           class="ru.dypose.springcore.inversionOfControl.RockMusic">
     </bean>
+
+    <bean id="musicPlayer"
+    class="ru.dypose.springcore.inversionOfControl.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
 </beans>
