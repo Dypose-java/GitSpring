@@ -23,7 +23,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.dypose.springcore.beans.MusicPlayer">
+          class="ru.dypose.springcore.beans.MusicPlayer"
+    scope="prototype">
         <!-- Конструктор с листом-->
         <constructor-arg>
             <list>
