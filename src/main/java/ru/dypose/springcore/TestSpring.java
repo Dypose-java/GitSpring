@@ -1,7 +1,6 @@
 package ru.dypose.springcore;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.dypose.springcore.inversionOfControl.Music;
 import ru.dypose.springcore.inversionOfControl.MusicPlayer;
 
 public class TestSpring {
