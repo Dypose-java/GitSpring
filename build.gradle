@@ -15,6 +15,7 @@ dependencies {
     implementation("org.springframework:spring-core:6.2.7")
     implementation("org.springframework:spring-beans:6.2.7")
     implementation("org.springframework:spring-context:6.2.7")
+    implementation("org.springframework:spring-context:6.2.7")
 }
 
 test {
