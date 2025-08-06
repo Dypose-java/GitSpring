@@ -1,19 +1,24 @@
 package ru.dypose.springcore;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ru.dypose.springcore.beans.ClassicalMusic;
+import ru.dypose.springcore.beans.HipHopMusic;
 import ru.dypose.springcore.beans.MusicPlayer;
+import ru.dypose.springcore.beans.RockMusic;
 
 public class TestSpring {
     public static void main(String[] args) {
 
         try(ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml")) {
-            MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-            MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
-            System.out.println(musicPlayer1==musicPlayer);
-            System.out.println(musicPlayer+"\n"+musicPlayer1);
+            HipHopMusic hipHopBean = context.getBean("hipHopBean", HipHopMusic.class);
+            ClassicalMusic classicalBean = context.getBean("classicalBean", ClassicalMusic.class);
+            RockMusic rockMusic = context.getBean("rockMusic", RockMusic.class);
+            System.out.println(hipHopBean);
+            System.out.println(classicalBean);
+            System.out.println(rockMusic);
 
-
+            var classicalMusic=ClassicalMusic.getClassicalMusic();
         }
 
 
