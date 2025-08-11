@@ -8,28 +8,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-<!--Тонкость если мы не указываем scope то даже при фабричном методе будет singleton-->
-<!--для scope:prototype не вызывается метод destroy -->
-    <bean id="hipHopBean"
-          class="ru.dypose.springcore.beans.HipHopMusic"
-          scope="prototype"
-    init-method="initMethod"
-    destroy-method="destroyMethod">
-    </bean>
-
-    <bean id="classicalBean"
-          class="ru.dypose.springcore.beans.ClassicalMusic"
-          init-method="initMethod"
-          scope="prototype"
-          factory-method="getClassicalMusic"
-          destroy-method="destroyMethod">
-    </bean>
-
-    <bean id="rockMusic"
-          class="ru.dypose.springcore.beans.RockMusic"
-          init-method="initMethod"
-          destroy-method="destroyMethod">
-    </bean>
+<context:component-scan base-package="ru"/>
 
 
 </beans>

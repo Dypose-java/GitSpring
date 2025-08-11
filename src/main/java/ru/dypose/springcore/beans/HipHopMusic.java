@@ -1,20 +1,13 @@
 package ru.dypose.springcore.beans;
 
-public class HipHopMusic implements Music{
-    //фабричный метод
-    private HipHopMusic(){}
-    public static HipHopMusic getHipHopMusic(){
-        return new HipHopMusic();
-    }
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-    private void initMethod(){
-        System.out.println("Вызывается укзанный init-method перед перед использованием бина");
-    }
-    private void destroyMethod(){
-        System.out.println("Вызывается указанный destroy-method для корректного удаление бина");
-    }
+@Component
+public class HipHopMusic implements Music{
+
     @Override
     public String getSong() {
-        return "Хип хоп музыка";
+        return "Sound HipHopMusic";
     }
 }
