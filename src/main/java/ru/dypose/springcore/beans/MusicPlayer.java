@@ -1,16 +1,16 @@
 package ru.dypose.springcore.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
-
+@Component
 public class MusicPlayer {
-private Music music;
+    //todo можно в констурктор,поле,метод
+    @Autowired
+private ClassicalMusic music;
 
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-    public void getSound(){
-        System.out.println("Play:"+music.getSong());
+
+    public String getSound(){
+       return "Play:"+ music.getSong();
     }
 }
