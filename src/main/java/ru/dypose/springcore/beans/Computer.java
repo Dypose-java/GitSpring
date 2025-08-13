@@ -1,23 +1,28 @@
 package ru.dypose.springcore.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.stereotype.Component;
-
-import java.util.Random;
 
 @Component
 public class Computer {
-    private int id;
-    private MusicPlayer musicPlayer;
-
     @Autowired
-    public Computer(MusicPlayer musicPlayer) {
-        this.id = new Random().nextInt(1, 1000);
-        this.musicPlayer = musicPlayer;
+    @Qualifier("hipHopMusic")
+    private Music music;
+
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
-    @Override
-    public String toString() {
-        return "Computer:" + " id:" + id + ", " + musicPlayer.getSound();
+    @Autowired
+    public Computer(@Qualifier("hipHopMusic") Music music) {
+        this.music = music;
+    }
+
+    public String getMusicSong(){
+        return music.getSong();
     }
 }
