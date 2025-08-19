@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
-@Component
 public class MusicClassic implements Music {
     @Value("${music.MusicHipHop}")
     private String music;
