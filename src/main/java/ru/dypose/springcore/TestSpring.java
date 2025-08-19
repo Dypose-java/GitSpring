@@ -6,6 +6,8 @@ import ru.dypose.springcore.beans.Music;
 import ru.dypose.springcore.beans.MusicPlayer;
 import ru.dypose.springcore.conf.SpringConfig;
 
+import java.util.Random;
+
 public class TestSpring {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
@@ -16,5 +18,6 @@ public class TestSpring {
 
 
         context.close();
+
     }
 }

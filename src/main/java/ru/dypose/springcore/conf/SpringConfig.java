@@ -4,9 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import ru.dypose.springcore.beans.MusicClassic;
-import ru.dypose.springcore.beans.MusicHipHop;
-import ru.dypose.springcore.beans.MusicPlayer;
+import ru.dypose.springcore.beans.*;
 
 import java.util.List;
 
@@ -23,7 +21,16 @@ public class SpringConfig {
         return new MusicHipHop();
     }
     @Bean
+    public MusicVampire musicVampireBean(){
+        return new MusicVampire();
+    }
+    @Bean
+    public List<Music> musicListBean(){
+        return List.of(musicClassicBean(),musicVampireBean(),musicHipHopBean());
+    }
+
+    @Bean
     public MusicPlayer musicPlayerBean(){
-        return new MusicPlayer(List.of(musicClassicBean(),musicHipHopBean()));
+        return new MusicPlayer(musicListBean());
     }
 }

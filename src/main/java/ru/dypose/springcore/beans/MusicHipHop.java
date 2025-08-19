@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
-public class MusicHipHop implements Music{
+public class MusicHipHop extends AbstractMusic implements Music{
     @Value("${music.MusicClassic}")
     private String music;
 

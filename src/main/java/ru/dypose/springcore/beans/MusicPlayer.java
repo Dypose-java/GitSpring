@@ -7,14 +7,17 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
+
 public class MusicPlayer {
-    private List<Music> music = new ArrayList<>();
+    private final List<Music> music;
 
     public MusicPlayer(List<Music> music) {
         this.music = music;
     }
     public void play(){
-        music.forEach(el-> System.out.println(el.sound()));
+        String sound = music.get(new Random().nextInt(0, music.size())).sound();
+        System.out.println(sound);
     }
 
     @Override

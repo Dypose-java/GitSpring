@@ -1,11 +1,12 @@
 package ru.dypose.springcore.beans;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
-public class MusicClassic implements Music {
+public class MusicClassic extends AbstractMusic implements Music  {
     @Value("${music.MusicHipHop}")
     private String music;
 
