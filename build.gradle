@@ -14,6 +14,8 @@ dependencies {
     // Spring 6
     implementation 'org.springframework:spring-webmvc:6.2.7'
 
+    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
+
     // Thymeleaf для Spring 6
     implementation 'org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE'
 
