@@ -19,7 +19,6 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 public class SpringConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
 
-    @Autowired
     public SpringConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
@@ -28,8 +27,10 @@ public class SpringConfig implements WebMvcConfigurer {
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/views/");
+        templateResolver.setPrefix("/WEB-INF/views/"); // ← ВАЖНО: ваш путь!
         templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML");
+        templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
 
@@ -41,10 +42,16 @@ public class SpringConfig implements WebMvcConfigurer {
         return templateEngine;
     }
 
-    @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
+    @Bean
+    public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
-        registry.viewResolver(resolver);
+        resolver.setCharacterEncoding("UTF-8");
+        return resolver;
+    }
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.viewResolver(viewResolver());
     }
 }
