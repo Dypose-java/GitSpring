@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Отображение всех людей</title>
+    <title>Пользователь</title>
 </head>
 <body>
-<div th:each
+<p th:text="${person.id}">ID</p>
+<p th:text="${person.name}">Имя</p>
+<a th:href="@{/people}">Назад к списку</a>
 </body>
 </html>

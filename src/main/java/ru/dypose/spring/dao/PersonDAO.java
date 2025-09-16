@@ -20,10 +20,11 @@ public class PersonDAO {
         peopleBD = new ArrayList<>();
         for (int i = 0; i < 19; i++) {
             peopleBD.add(new Person(
-                    i, alphabet.toString()
-                    .replace(",", "")
+                    i, "User:"+alphabet.toString()
+                    .replace(",", "").replace(" ","").replace("[","")
                     .substring(0, new Random().nextInt(alphabet.size()))));
         }
+        System.out.println(peopleBD);
     }
 
     public List<Person> index() {

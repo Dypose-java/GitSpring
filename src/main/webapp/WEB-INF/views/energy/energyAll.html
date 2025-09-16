@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список энергетиков</title>
+</head>
+<body>
+<h1>Все энергетики</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Вкус</th>
+        <th>Действие</th>
+    </tr>
+    <tr th:each="energy : ${energys}">
+        <td th:text="${energy.id}"></td>
+        <td th:text="${energy.name}"></td>
+        <td th:text="${energy.taste}"></td>
+        <td>
+            <!-- Ссылка на страницу энергетика -->
+            <a th:href="@{/energy/{id}(id=${energy.id})}">Перейти</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

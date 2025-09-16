@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Представление одного энергетика</title>
+</head>
+<body>
+<p>ID:<span th:text="${energy.getId()}"></span></p>
+<p>NAME:<span th:text="${energy.getName()}"></span></p>
+<p>TASTE:<span th:text="${energy.getTaste()}"></span></p>
+<a th:href="@{/energy}">Назад к списку</a>
+</body>
+</html>
